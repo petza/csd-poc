@@ -1,7 +1,8 @@
 package net.homecredit.test;
 
-import net.homecredit.embedit.framework.common.config.ApplicationContextInitializer;
-import net.homecredit.test.config.ApplicationConfig;
+import net.homecredit.embedit.framework.common.config.RestConfig;
+import net.homecredit.test.config.TestRepositoryConfig;
+import net.homecredit.test.config.TestServiceConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.ContextLoaderListener;
@@ -22,19 +23,19 @@ public class WebAppInitializer implements WebApplicationInitializer
     public void onStartup(ServletContext servletContext) throws ServletException {
         
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(ApplicationConfig.class);
+        rootContext.register(TestRepositoryConfig.class, TestServiceConfig.class);
         
         servletContext.addListener(new ContextLoaderListener(rootContext));
 
         /* Add ApplicationContextInitializer in order to correctly perform customized initialization of Spring */
         servletContext.setInitParameter(ContextLoader.CONTEXT_INITIALIZER_CLASSES_PARAM, ApplicationContextInitializer.class.getName());
 
-//        AnnotationConfigWebApplicationContext webCtx = new AnnotationConfigWebApplicationContext();
-//        webCtx.register(RestControllerConfig.class);
+        AnnotationConfigWebApplicationContext webCtx = new AnnotationConfigWebApplicationContext();
+        webCtx.register(RestConfig.class);
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet(rootContext);
-        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", dispatcherServlet);
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("rest-exporter", dispatcherServlet);
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/test/*");
+        dispatcher.addMapping("/*");
     }
 }
