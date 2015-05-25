@@ -16,9 +16,6 @@ public class BoundaryTest {
     public static void main(String[] args) {
 
         new SpringApplicationBuilder(BoundaryTest.class).initializers().run(args);
-        
-        
-
 
     }
 }

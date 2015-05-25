@@ -10,13 +10,4 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "net.homecredit.test")
 public class ApplicationConfig {
 
-//	@Bean
-//	public InternalResourceViewResolver internalResourceViewResolver() {
-//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-//		resolver.setPrefix("/api");
-//		resolver.setSuffix(".json");
-//
-//		return resolver;
-//	}
-
 }
