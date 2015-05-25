@@ -5,6 +5,7 @@ import com.mysema.query.jpa.impl.JPAQuery;
 import net.homecredit.csd.domain.Boundary;
 import net.homecredit.csd.domain.QBoundary;
 import net.homecredit.csd.service.BoundaryService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,6 +20,8 @@ import javax.persistence.EntityManager;
 
 @Component
 public class HelperService {
+
+    private static org.slf4j.Logger LOG = LoggerFactory.getLogger(HelperService.class);
 
     @Autowired
     private BoundaryService boundaryService;
