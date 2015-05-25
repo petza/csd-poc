@@ -1,4 +1,4 @@
-package net.homecredit.test;
+package net.homecredit.test.config;
 
 import net.homecredit.embedit.framework.common.config.CommonRepositoryConfig;
 import org.springframework.context.annotation.Configuration;

@@ -2,6 +2,7 @@ package net.homecredit.test;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -15,7 +16,9 @@ public class BoundaryTest {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(BoundaryTest.class).initializers().run(args);
-
+        ConfigurableApplicationContext context = new SpringApplicationBuilder(BoundaryTest.class).initializers().run(args);
+        
+        BoundaryFinder boundaryFinder = context.getBean(BoundaryFinder.class);
+        boundaryFinder.run();
     }
 }

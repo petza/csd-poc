@@ -19,9 +19,9 @@ import javax.persistence.EntityManager;
  */
 
 @Component
-public class HelperService {
+public class BoundaryFinder {
 
-    private static org.slf4j.Logger LOG = LoggerFactory.getLogger(HelperService.class);
+    private static org.slf4j.Logger LOG = LoggerFactory.getLogger(BoundaryFinder.class);
 
     @Autowired
     private BoundaryService boundaryService;

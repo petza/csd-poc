@@ -1,6 +1,7 @@
 package net.homecredit.test;
 
 import net.homecredit.embedit.framework.common.config.ApplicationContextInitializer;
+import net.homecredit.test.config.ApplicationConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.ContextLoaderListener;
@@ -21,7 +22,7 @@ public class WebAppInitializer implements WebApplicationInitializer
     public void onStartup(ServletContext servletContext) throws ServletException {
         
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(TestRepositoryConfig.class, TestServiceConfig.class);
+        rootContext.register(ApplicationConfig.class);
         
         servletContext.addListener(new ContextLoaderListener(rootContext));
 
@@ -34,6 +35,6 @@ public class WebAppInitializer implements WebApplicationInitializer
         DispatcherServlet dispatcherServlet = new DispatcherServlet(rootContext);
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", dispatcherServlet);
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/api/test/*");
+        dispatcher.addMapping("/test/*");
     }
 }
