@@ -8,11 +8,13 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @ComponentScan("net.homecredit.test")
-public class BoundaryProcessor {
+public class BoundaryTest {
     
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+//        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+        ctx.register(TestServiceConfig.class, TestRepositoryConfig.class);
         ctx.scan("net.homecredit.test");
         ctx.refresh();
 
