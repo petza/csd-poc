@@ -18,7 +18,7 @@ import javax.persistence.EntityManager;
  */
 
 @Component
-public class HelperService {
+public class BoundaryFinder {
 
     @Autowired
     private BoundaryService boundaryService;

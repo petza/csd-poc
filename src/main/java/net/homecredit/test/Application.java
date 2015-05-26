@@ -8,19 +8,18 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @ComponentScan("net.homecredit.test")
-public class BoundaryTest {
+public class Application {
     
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-//        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(TestServiceConfig.class, TestRepositoryConfig.class);
+        ctx.register(TestServiceConfig.class, TestRepositoryConfig.class, AppConfig.class);
         ctx.scan("net.homecredit.test");
         ctx.refresh();
 
-        HelperService helperService = ctx.getBean(HelperService.class);
+        BoundaryFinder boundaryFinder = ctx.getBean(BoundaryFinder.class);
 
-        helperService.run();
+        boundaryFinder.run();
 
     }
 }

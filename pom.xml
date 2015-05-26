@@ -12,7 +12,7 @@
     <groupId>net.homecredit.test</groupId>
     <artifactId>csd-poc</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
 
     <dependencies>
@@ -44,11 +44,6 @@
             <artifactId>querydsl-core</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.mysema.querydsl</groupId>-->
-            <!--<artifactId>querydsl-apt</artifactId>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>com.mysema.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
@@ -75,16 +70,6 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.data</groupId>-->
-            <!--<artifactId>spring-data-jpa</artifactId>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.eclipse.persistence</groupId>-->
-            <!--<artifactId>eclipselink</artifactId>-->
-        <!--</dependency>-->
-        
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
@@ -98,6 +83,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
+            <!--<scope>provided</scope>-->
         </dependency>
 
 
